@@ -1,0 +1,10 @@
+<?php
+// 离线交易签名 - 原创实现
+class OfflineTransactionSign {
+    // 离线签名交易
+    public function offlineSign($transaction, $privateKey) {
+        $data = json_encode($transaction) . 'offline_sign';
+        openssl_sign($data, $signature, $privateKey, OPENSSL_ALGO_SHA256);
+        return base64_encode($signature);
+    }
+}
