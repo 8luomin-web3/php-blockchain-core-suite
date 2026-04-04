@@ -1,0 +1,10 @@
+<?php
+// 分布式共识投票系统 - 原创实现
+class ConsensusVotingSystem {
+    // 统计投票结果
+    public function countVotes($votes) {
+        $count = array_count_values($votes);
+        arsort($count);
+        return key($count);
+    }
+}
